@@ -2,6 +2,28 @@
 " Tim's Vim Configuration
 " =============================================================================
 
+" --- Plugin Manager (vim-plug) ---
+" Auto-install vim-plug if missing
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs '
+    \ .'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+" --- Terraform / HCL ---
+Plug 'hashivim/vim-terraform'        " Syntax, :Terraform cmd, fmt on save
+Plug 'vim-syntastic/syntastic'       " Syntax checking (works with terraform)
+
+call plug#end()
+
+" --- Terraform Settings ---
+let g:terraform_align = 1             " Align settings in .tf files
+let g:terraform_fmt_on_save = 1       " Auto-run terraform fmt on save
+let g:terraform_fold_sections = 0     " Don't fold terraform sections
+
 " --- General Settings ---
 set nocompatible              " Use Vim defaults (not Vi)
 set encoding=utf-8            " UTF-8 encoding

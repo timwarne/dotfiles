@@ -175,6 +175,25 @@ symlink_dotfiles() {
 }
 
 # =============================================================================
+# Vim Plugins (vim-plug)
+# =============================================================================
+install_vim_plugins() {
+    echo "==> Installing vim plugins..."
+    # vim-plug auto-installs itself on first vim launch (see .vimrc),
+    # but we can trigger it now for a clean setup
+    if [[ ! -f "$HOME/.vim/autoload/plug.vim" ]]; then
+        echo "    Installing vim-plug..."
+        curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    else
+        echo "    OK  vim-plug already installed"
+    fi
+    # Install plugins non-interactively
+    vim +PlugInstall +qall 2>/dev/null
+    echo "    OK  Vim plugins installed"
+}
+
+# =============================================================================
 # Main
 # =============================================================================
 main() {
@@ -190,6 +209,7 @@ main() {
     install_oh_my_zsh
     install_zsh_plugins
     symlink_dotfiles
+    install_vim_plugins
 
     echo ""
     echo "==> All done! Restart your shell or run: source ~/.zshrc"
