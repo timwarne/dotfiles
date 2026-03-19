@@ -23,3 +23,5 @@ alias projects="cd ~/projects"
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
+
+alias w="cd ~/projects/warne-cloud"
