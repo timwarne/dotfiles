@@ -1,0 +1,25 @@
+# =============================================================================
+# Aliases
+# =============================================================================
+
+alias tf="terraform"
+alias tfp="terraform plan"
+alias tfa="terraform apply"
+alias tfd="terraform destroy"
+alias tff="terraform fmt"
+alias tfi="terraform init"
+
+# --- ls ---
+alias ll="ls -lAFh"
+alias la="ls -A"
+alias l="ls -CF"
+
+# --- Shortcuts ---
+alias reload="source ~/.zshrc"
+alias dotfiles="cd ~/dotfiles"
+alias projects="cd ~/projects"
+
+# --- Safety ---
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
