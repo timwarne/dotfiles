@@ -111,6 +111,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Accept zsh-autosuggestions with Tab
+bindkey '\t' autosuggest-accept
+
 # Load aliases
 [[ ! -f ~/.aliases ]] || source ~/.aliases
 
