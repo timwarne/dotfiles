@@ -35,8 +35,6 @@ set hidden                    " Allow buffers in background without saving
 set backspace=indent,eol,start " Backspace works as expected
 
 " --- UI / Display ---
-set number                    " Show line numbers
-set relativenumber            " Relative line numbers for easy jumping
 set cursorline                " Highlight current line
 set showmatch                 " Highlight matching brackets
 set showcmd                   " Show incomplete commands
